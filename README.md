@@ -34,15 +34,17 @@ flutter test                   # unit and widget tests
 
 ## Deploy the web preview to Vercel
 
-Vercel does not build Flutter itself, so build locally and deploy the static output.
+Vercel has no Flutter SDK, so the built web app is committed in `deploy/` and the root
+`vercel.json` tells Vercel to serve that folder without building.
+
+After changing code, refresh `deploy/` and push:
 
 ```bash
-flutter build web --release
-npx vercel deploy build/web --prod
+./build_deploy.sh
+git add deploy && git commit -m "Update web build" && git push
 ```
 
-The first deploy asks you to log in and name the project. The app uses hash URLs, so no rewrite
-rules are needed. `web/vercel.json` is copied into the build and sets caching headers.
+The app uses hash URLs, so no rewrite rules are needed.
 
 ## Project structure
 

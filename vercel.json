@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": false,
+  "framework": null,
+  "installCommand": "echo \"Prebuilt Flutter web output, no install needed\"",
+  "buildCommand": "echo \"Serving prebuilt deploy/ folder\"",
+  "outputDirectory": "deploy",
   "headers": [
     {
       "source": "/(.*)",
